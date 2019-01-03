@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:17:32 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 13:14:32 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:28:31 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,35 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+
+int		check_tetris_nb_lines(int fd)
+{
+	char *line;
+	int i;
+
+	i = 0;
+	while (get_next_line(fd, &line) >= 0)
+	{
+		while (i < 4)
+		{
+			get_next_line(fd, &line);
+			if (ft_strcmp(line, "") == 0)
+				return (-1);
+			i++;
+			ft_strdel(&line);
+		}
+		i = 0;
+		get_next_line(fd, &line);
+		if (ft_strcmp(line, "") != 0)
+		{
+			ft_putstr_fd("Eroor with nb_lines\n", 2);
+			exit(84);
+		}
+		ft_strdel(&line);
+	}
+	close (fd);
+	return (0);
+}
 
 int		check_spaces(int fd)
 {

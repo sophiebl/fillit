@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 18:01:17 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 13:04:13 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:28:56 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int		main(int ac, char **av)
 {
 	int fd;
 	int fd2;
+	//int	fd3;
 
 	fd = 0;
 	fd2 = 0;
+	//fd3 = 0;
 	if (ac != 2)
 	{
 		ft_putstr_fd("We need one argument\n", 2);
@@ -30,10 +32,15 @@ int		main(int ac, char **av)
 	{
 		fd = open(av[1], O_RDONLY);
 		fd2 = open(av[1], O_RDONLY);
-		if (fd < 0 && fd2 < 0)
+		fd3 = open(av[1], O_RDONLY);
+		if (fd < 0)// || fd2 < 0 || fd3 < 0)
 			return (-1);
 		check_spaces(fd2);
+		close (fd2);
+		//check_tetris_nb_lines(fd3);
+		//close (fd3);
 		take_tetri(fd);
 		close (fd);
 	}
+	return (0);
 }
