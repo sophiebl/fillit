@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:17:32 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 15:28:31 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/03 16:55:50 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,20 @@ int		check_tetris_nb_lines(int fd)
 	int i;
 
 	i = 0;
-	while (get_next_line(fd, &line) >= 0)
+	while (get_next_line(fd, &line) > 0)
 	{
-		while (i < 4)
+		if (i == 4)
 		{
-			get_next_line(fd, &line);
-			if (ft_strcmp(line, "") == 0)
-				return (-1);
+			if (ft_strcmp(line, "") != 0)
+			{
+				ft_putstr(line);
+				ft_putstr_fd("Error here\n", 2);
+				exit (84);
+			}
+			i = 0;
+		}
+		else
 			i++;
-			ft_strdel(&line);
-		}
-		i = 0;
-		get_next_line(fd, &line);
-		if (ft_strcmp(line, "") != 0)
-		{
-			ft_putstr_fd("Eroor with nb_lines\n", 2);
-			exit(84);
-		}
 		ft_strdel(&line);
 	}
 	close (fd);
