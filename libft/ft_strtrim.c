@@ -3,40 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 11:25:58 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/11/14 16:32:45 by kboucaul         ###   ########.fr       */
+/*   Created: 2018/11/21 22:21:58 by sboulaao          #+#    #+#             */
+/*   Updated: 2018/11/29 14:23:07 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strtrim(char const *s)
+static int			ft_is_separator(char c)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	k;
-	char			*str;
+	if (c == ' ' || c == '\t' || c == '\n')
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	k = 0;
-	if (s == NULL)
+char				*ft_strtrim(char const *s)
+{
+	int		start;
+	int		size;
+
+	if (!s)
 		return (NULL);
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	if (s[i] == '\0')
+	if (!s[0])
 		return (ft_strdup(""));
-	j = ft_strlen(s) - 1;
-	while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
-		j--;
-	if (!(str = (char *)malloc(sizeof(char) * (j - i + 2))))
-		return (NULL);
-	while (k < (j - i + 1))
-	{
-		str[k] = s[i + k];
-		k++;
-	}
-	str[k] = '\0';
-	return (str);
+	start = 0;
+	while (ft_is_separator(s[start]))
+		start++;
+	if (!s[start])
+		return (ft_strdup(""));
+	size = ft_strlen(s + start) - 1;
+	while (ft_is_separator(s[size + start]) && size >= 0)
+		size--;
+	size++;
+	return (ft_strsub(s, start, size));
 }

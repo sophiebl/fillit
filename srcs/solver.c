@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/11 11:54:26 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/12/12 16:52:49 by kboucaul         ###   ########.fr       */
+/*   Created: 2019/01/03 14:44:53 by sboulaao          #+#    #+#             */
+/*   Updated: 2019/01/04 15:41:37 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../include/fillit.h"
 
-# define BUFF_SIZE 6
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+/*
+tetri_list	*get_tetrimonos_lst(char **tab)
+{
+	tetri_list	*tetri;
 
-int get_next_line(const int fd, char **line);
+	if
+}
+*/
 
-#endif
+int		solve(int fd)
+{
+	//	get_tetrimonos_lst(tab);
+	(void)fd;
+	return (0);
+}

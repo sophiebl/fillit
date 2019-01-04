@@ -6,13 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:48:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 17:10:18 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/04 15:40:29 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "get_next_line.h"
-#include "tetri.h"
+#include "../include/fillit.h"
 
 char **my_alloc_tab(char *str, int *nb_tetris)
 {
@@ -44,9 +42,12 @@ int		take_tetri(const int fd)
 	str = my_get_line(&fd, line);
 	close (fd);
 	nb_tetris = ft_strlen(str) / 16;
+	ft_putnbr(nb_tetris);
 	tab = str_to_tab(str);
 	if (check_size_tetri(tab, nb_tetris) == -1)
 		return (-1);
+	/*if (!solve(tab))
+		write(1, "error\n", 6);*/
 	tab = put_letters(tab, nb_tetris);
 	print_tab(tab, nb_tetris);
 	return (0);

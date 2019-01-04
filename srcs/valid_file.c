@@ -6,13 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:20:39 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 15:17:25 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/04 15:40:40 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tetri.h"
-#include "libft.h"
-#include <stdio.h>
+#include "../include/fillit.h"
 
 /*
 int		check_link(char **tab)

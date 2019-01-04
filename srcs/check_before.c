@@ -6,17 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:17:32 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 16:55:50 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/04 15:39:45 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "tetri.h"
-#include "libft.h"
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
+#include "../include/fillit.h"
 
 int		check_tetris_nb_lines(int fd)
 {
