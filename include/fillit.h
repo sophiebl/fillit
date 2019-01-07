@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/04 18:32:28 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/07 15:45:38 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ int						is_good_char(char *str);
 char					*my_get_line(const int *fd, char *line);
 char					**my_alloc_tab(char *str, int *nb_tetris);
 int						solve(char **tab, int nb_tetris);
+int     				check_links(char *tab);
+int     				check_form(char **tab, int index);
 
 # endif			

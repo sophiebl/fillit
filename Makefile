@@ -6,38 +6,45 @@
 #    By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/12 13:36:39 by kboucaul          #+#    #+#              #
-#    Updated: 2019/01/03 18:50:54 by sboulaao         ###   ########.fr        #
+#    Updated: 2019/01/07 15:38:35 by sboulaao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fillit
+NAME		=		fillit
 
-CC = gcc
+SRCS		=		./srcs/main.c				\
+					./srcs/check_before.c		\
+					./srcs/check_form.c			\
+					./srcs/process.c			\
+					./srcs/take_tetri.c			\
+					./srcs/valid_file.c
 
-FLAGS = -Wall -Werror -Wextra
+OBJS		=		$(SRCS:%.c=%.o)
 
-SRCS = ./check_before.c \
-		process.c \
-		take_tetri.c \
-		valid_file.c
+CC			=		gcc
 
-OBJ = $(SRC:.c=.o)
+CFLAGS		+=		-Wall -Wextra -Werror -I ./include
 
-INC = -I libft/includes -L libft/ -lft
+LIB			=		-L./libft -lft
 
-all: $(NAME)
+RM			=		rm -f
 
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(INC) -o $@ $^
+CLEAN		=		clean
 
-clean:
-	@make clean -C libft/
-		@rm -f $(OBJ)
+all			:		$(NAME)
 
-fclean: clean
-	@make fclean -C libft/
-		@rm -f $(NAME)
+$(NAME)		:		$(OBJS)
+					make -C ./libft/
+					$(CC) -o $(NAME) $(OBJS) $(LIB)
 
-re: fclean all
+clean		:		
+					$(RM) $(OBJS)
+					make clean -C ./libft
+
+fclean		:		clean
+					$(RM) $(NAME)
+					make fclean -C ./libft/
+
+re			:		fclean	all
 
 .PHONY: all clean fclean re

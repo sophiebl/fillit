@@ -6,16 +6,15 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:17:32 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/04 18:12:25 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fillit.h"
 
-int		check_tetris_nb_lines(int fd)
+int			check_tetris_nb_lines(int fd)
 {
-	char *line;
-	int i;
+	char	*line;
+	int		i;
 
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
@@ -24,9 +23,8 @@ int		check_tetris_nb_lines(int fd)
 		{
 			if (ft_strcmp(line, "") != 0)
 			{
-				ft_putstr(line);
-				ft_putstr_fd("Error here\n", 2);
-				exit (84);
+				ft_putstr_fd("error\n", 2);
+				exit(84);
 			}
 			i = 0;
 		}
@@ -34,31 +32,31 @@ int		check_tetris_nb_lines(int fd)
 			i++;
 		ft_strdel(&line);
 	}
-	close (fd);
+	close(fd);
 	return (0);
 }
 
-int		check_spaces(int fd)
+int			check_spaces(int fd)
 {
-	char *line;
-	int spaces;
+	char	*line;
+	int		spaces;
 
 	spaces = 0;
 	get_next_line(fd, &line);
 	if (ft_strcmp(line, "") == 0)
 	{
-		ft_putstr_fd("error with spaces\n", 2);
-		exit (84);
+		ft_putstr_fd("error", 2);
+		exit(84);
 	}
 	ft_strdel(&line);
 	while (get_next_line(fd, &line) > 0)
-	{ 
+	{
 		if ((ft_strcmp(line, "") == 0) && (spaces == 0))
 			spaces = 1;
 		else if ((ft_strcmp(line, "") == 0) && (spaces == 1))
 		{
-			ft_putstr_fd("error with spaces\n", 2);
-		   	exit (84);
+			ft_putstr_fd("error", 2);
+			exit(84);
 		}
 		else
 		{
@@ -68,7 +66,7 @@ int		check_spaces(int fd)
 	}
 	if (line && (ft_strcmp(line, "") == 0) && (get_next_line(fd, &line) == 0))
 	{
-		ft_putstr_fd("Spaces at the EOF\n", 2);
+		ft_putstr_fd("error", 2);
 		exit(84);
 	}
 	close(fd);

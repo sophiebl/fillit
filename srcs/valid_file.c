@@ -6,36 +6,12 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:20:39 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/04 15:40:40 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/07 15:42:57 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fillit.h"
 
-/*
-int		check_link(char **tab)
-{
-	int i;
-	int j;
-	int count;
-
-	i = 0;
-	j = 0;
-	count = 0;
-	while (i < nb_tetris)
-	{
-		while (tab[i][j])
-		{
-			if (tab[i][j] == '#')
-			{
-				while (
-		}
-		j = 0;
-		i = 0;
-	}
-	return (0);
-}
-*/
 int		check_size_tetri(char **tab, int nb_tetris)
 {
 	int count;
@@ -55,7 +31,7 @@ int		check_size_tetri(char **tab, int nb_tetris)
 		}
 		if (count != 4)
 		{
-			ft_putstr_fd("Error here (check_size_tetri)", 2);
+			ft_putstr_fd("error\n", 2);
 			return (-1);
 		}
 		count = 0;
@@ -74,7 +50,7 @@ int		check_nb_lines(char **tab, int nb_tetris)
 	{
 		if (ft_strlen(tab[i]) != 16)
 		{
-			ft_putstr_fd("Bad size of line\n", 2);
+			ft_putstr_fd("error\n", 2);
 			return (-1);
 		}
 		else

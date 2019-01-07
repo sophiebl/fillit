@@ -6,16 +6,16 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:48:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/04 18:18:15 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/07 15:43:18 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fillit.h"
 
-char **my_alloc_tab(char *str, int *nb_tetris)
+char			**my_alloc_tab(char *str, int *nb_tetris)
 {
-	size_t 	i;
-	char 	**tab;
+	size_t		i;
+	char		**tab;
 
 	i = 0;
 	*nb_tetris = ft_strlen(str) / 16;
@@ -30,24 +30,38 @@ char **my_alloc_tab(char *str, int *nb_tetris)
 	return (tab);
 }
 
-int		take_tetri(const int fd)
+int				take_tetri(const int fd)
 {
-	char	*line;
-	char	*str;
-	char 	**tab;
-	int		nb_tetris;
+	char		*line;
+	char		*str;
+	char		**tab;
+	int			nb_tetris;
+	int			i;
 
+	i = 0;
 	line = NULL;
 	str = NULL;
 	str = my_get_line(&fd, line);
-	close (fd);
+	close(fd);
 	nb_tetris = ft_strlen(str) / 16;
 	ft_putnbr(nb_tetris);
 	tab = str_to_tab(str);
 	if (check_size_tetri(tab, nb_tetris) == -1)
 		return (-1);
+<<<<<<< HEAD
 	if (!solve(tab, nb_tetris))
 		write(1, "error\n", 6);
+=======
+	while (i < nb_tetris)
+	{
+		if (check_form(tab, i) != 0)
+		{
+			ft_putstr_fd("error\n", 2);
+			exit(84);
+		}
+		i++;
+	}
+>>>>>>> b450694371222e14e30004b85a38fae2217db09d
 	tab = put_letters(tab, nb_tetris);
 	print_tab(tab, nb_tetris);
 	return (0);
