@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 18:06:32 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 15:23:34 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/07 12:59:39 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ void    print_tab(char **tab, int nb_tetris);
 int     is_good_char(char *str);
 char    *my_get_line(const int *fd, char *line);
 char **my_alloc_tab(char *str, int *nb_tetris);
+int     check_links(char *tab);
+int     check_form(char **tab, int index);
 #endif

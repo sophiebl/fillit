@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 17:48:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 17:10:18 by kboucaul         ###   ########.fr       */
+/*   Created: 2019/01/07 12:07:16 by kboucaul          #+#    #+#             */
+/*   Updated: 2019/01/07 13:12:23 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int		take_tetri(const int fd)
 	char	*str;
 	char 	**tab;
 	int		nb_tetris;
+	int i;
 
+	i = 0;
 	line = NULL;
 	str = NULL;
 	str = my_get_line(&fd, line);
@@ -47,6 +49,15 @@ int		take_tetri(const int fd)
 	tab = str_to_tab(str);
 	if (check_size_tetri(tab, nb_tetris) == -1)
 		return (-1);
+	while (i < nb_tetris)
+	{
+		if (check_form(tab, i) != 0)
+		{
+			ft_putstr_fd("error\n", 2);
+			exit (84);
+		}
+		i++;
+	}
 	tab = put_letters(tab, nb_tetris);
 	print_tab(tab, nb_tetris);
 	return (0);
