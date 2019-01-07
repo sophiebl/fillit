@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 12:07:16 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 13:12:23 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/07 13:31:57 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include "get_next_line.h"
 #include "tetri.h"
 
-char **my_alloc_tab(char *str, int *nb_tetris)
+char			**my_alloc_tab(char *str, int *nb_tetris)
 {
-	size_t 	i;
-	char 	**tab;
+	size_t		i;
+	char		**tab;
 
 	i = 0;
 	*nb_tetris = ft_strlen(str) / 16;
@@ -32,19 +32,19 @@ char **my_alloc_tab(char *str, int *nb_tetris)
 	return (tab);
 }
 
-int		take_tetri(const int fd)
+int				take_tetri(const int fd)
 {
-	char	*line;
-	char	*str;
-	char 	**tab;
-	int		nb_tetris;
-	int i;
+	char		*line;
+	char		*str;
+	char		**tab;
+	int			nb_tetris;
+	int			i;
 
 	i = 0;
 	line = NULL;
 	str = NULL;
 	str = my_get_line(&fd, line);
-	close (fd);
+	close(fd);
 	nb_tetris = ft_strlen(str) / 16;
 	tab = str_to_tab(str);
 	if (check_size_tetri(tab, nb_tetris) == -1)
@@ -54,7 +54,7 @@ int		take_tetri(const int fd)
 		if (check_form(tab, i) != 0)
 		{
 			ft_putstr_fd("error\n", 2);
-			exit (84);
+			exit(84);
 		}
 		i++;
 	}

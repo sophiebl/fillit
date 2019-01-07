@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 18:01:17 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/03 17:06:29 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/07 13:33:07 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int ac, char **av)
 	if (ac != 2)
 	{
 		ft_putstr_fd("We need one argument\n", 2);
-		return(0);
+		return (0);
 	}
 	else
 	{
