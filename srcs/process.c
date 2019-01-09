@@ -6,11 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 15:18:40 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 15:42:35 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/09 12:57:40 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fillit.h"
+#include "fillit.h"
 
 char		**gnl_to_line(char **tab, char *str, int nb_tetris)
 {

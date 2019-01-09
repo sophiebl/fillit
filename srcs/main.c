@@ -6,12 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 18:01:17 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 15:40:46 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/09 12:57:14 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "include/fillit.h"
+#include "fillit.h"
 
 int		main(int ac, char **av)
 {

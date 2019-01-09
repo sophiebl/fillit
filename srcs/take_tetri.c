@@ -6,11 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:48:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 15:43:18 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/09 12:58:07 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fillit.h"
+#include "fillit.h"
 
 char			**my_alloc_tab(char *str, int *nb_tetris)
 {
@@ -48,10 +48,8 @@ int				take_tetri(const int fd)
 	tab = str_to_tab(str);
 	if (check_size_tetri(tab, nb_tetris) == -1)
 		return (-1);
-<<<<<<< HEAD
-	if (!solve(tab, nb_tetris))
-		write(1, "error\n", 6);
-=======
+/*	if (!solve(tab, nb_tetris))
+		write(1, "error\n", 6);*/
 	while (i < nb_tetris)
 	{
 		if (check_form(tab, i) != 0)
@@ -61,7 +59,6 @@ int				take_tetri(const int fd)
 		}
 		i++;
 	}
->>>>>>> b450694371222e14e30004b85a38fae2217db09d
 	tab = put_letters(tab, nb_tetris);
 	print_tab(tab, nb_tetris);
 	return (0);

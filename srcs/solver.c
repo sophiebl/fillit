@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fillit.h"
+#include "fillit.h"
 
 tetri_lst	*get_tetrimonos_lst(char **tab, int nb_tetri)
 {

@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/07 15:45:38 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/09 13:38:53 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ typedef struct      s_point
 	int             	y;
 }                   t_point;
 
-typedef struct      tetri_lst
+typedef struct      t_tetri
 {
-	t_point         	start;
-	char            	**shape_tetri;
-	int             	nb_tetri;
-	struct tetri_lst	*next;
+	t_point		       	pos;
+	char            	*shape;
+	char             	lettre;
 }                   tetri_lst;
 
 int						get_next_line(const int fd, char **line);

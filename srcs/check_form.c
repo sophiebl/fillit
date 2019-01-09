@@ -6,12 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 17:26:03 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 13:24:25 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/09 12:57:08 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tetri.h"
-#include "libft.h"
+#include "fillit.h"
 
 int		check_form(char **tab, int index)
 {
