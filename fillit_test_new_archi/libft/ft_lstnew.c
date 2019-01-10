@@ -6,16 +6,16 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:30:39 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 12:34:30 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/10 19:12:25 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list  *ft_lstnew(void const *content, size_t content_size)
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list  *elem;
+	t_list	*elem;
 
 	elem = (t_list *)ft_memalloc(sizeof(t_list));
 	if (elem == NULL)

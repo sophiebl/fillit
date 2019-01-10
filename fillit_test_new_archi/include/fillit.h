@@ -6,51 +6,52 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/10 18:55:56 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/10 19:10:40 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FILLIT_H
+#ifndef FILLIT_H
 # define FILLIT_H
 
-#include "../libft/libft.h"
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include "../libft/libft.h"
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-typedef struct  		s_tetri
+typedef struct			s_tetri
 {
-	char        		**cut_out_tetri;
-	int         		width;
-	int         		height;
-	char        		value;
-}               		t_tetri;
+	char				**cut_out_tetri;
+	int					width;
+	int					height;
+	char				value;
+}						t_tetri;
 
-typedef struct      	s_point
+typedef struct			s_point
 {
-	int             	x;
-	int             	y;
-}                   	t_point;
+	int					x;
+	int					y;
+}						t_point;
 
 typedef struct			s_map
 {
-	char        		**map;
-	int         		size;
-}               		t_map;
+	char				**map;
+	int					size;
+}						t_map;
 
 /*
 **		Main.c
 */
 
 void					print_solution(t_map *map);
-int     				main(int ac, char **av);
+int						main(int ac, char **av);
 
 /*
 **		Get_my_file
 */
 
-char					**cut_the_tetri(char *str, t_point *coord_min, t_point *coord_max);
+char					**cut_the_tetri(char *str, t_point *coord_min,
+						t_point *coord_max);
 t_tetri					*get_tetri(char *str, char letter);
 t_list					*read_tetri(int fd, char *letter);
 
@@ -60,13 +61,16 @@ t_list					*read_tetri(int fd, char *letter);
 
 int						check_counts(char *tetri, int rd);
 int						check_link(char *tetri);
-void					get_coord(char *tetri, t_point *coord_min, t_point *coord_max);
+void					get_coord(char *tetri, t_point *coord_min,
+						t_point *coord_max);
+
 /*
-**		My_alloc_ressources		
+**		My_alloc_ressources
 */
 
 t_point					*value_to_point(int x, int y);
-t_tetri					*value_to_tetri(char **pos, int width, int height, char value);
+t_tetri					*value_to_tetri(char **pos, int width,
+						int height, char value);
 
 /*
 **		My_free_ressources
@@ -76,4 +80,4 @@ void					free_tetris(t_tetri *tetri);
 t_list					*free_list_tetris(t_list *list);
 void					free_point(t_point **coord_min, t_point **coord_max);
 void					free_map(t_map *map);
-# endif			
+#endif
