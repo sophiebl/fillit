@@ -6,11 +6,12 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:27:06 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/12/12 17:59:42 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/07 15:54:21 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
+#include "../include/fillit.h"
 
 /*
 **    Ft_readaline : prend un fd  et l'adresse d'un pointeur sur char.

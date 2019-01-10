@@ -3,70 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 11:25:27 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/11/14 16:34:25 by kboucaul         ###   ########.fr       */
+/*   Created: 2018/11/20 11:23:22 by sboulaao          #+#    #+#             */
+/*   Updated: 2018/12/01 15:34:12 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			nb_words(char const *s, char c)
+char					**ft_strsplit(char const *s, char c)
 {
-	unsigned int	i;
-	int				word;
+	int		j;
+	int		len;
+	char	**tab;
 
-	i = 0;
-	word = 0;
-	while (s[i])
+	j = 0;
+	if (!s || !c)
+		return (NULL);
+	if ((tab = (char **)malloc(sizeof(*tab) * (ft_countw(s, c) + 1))) == NULL)
+		return (NULL);
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-			word++;
-		while (s[i] && (s[i] != c))
-			i++;
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			len = ft_size_word(s, c);
+			if (!(tab[j] = ft_strnew(len)))
+				return (NULL);
+			ft_strncpy(tab[j++], s, len);
+			s += len;
+		}
 	}
-	return (word);
-}
-
-static char			*ft_strndup(const char *s, size_t n)
-{
-	char			*str;
-
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	str = ft_strncpy(str, s, n);
-	str[n] = '\0';
-	return (str);
-}
-
-char				**ft_strsplit(char const *s, char c)
-{
-	int				i;
-	int				j;
-	int				k;
-	char			**tab;
-
-	i = 0;
-	k = 0;
-	if (s == NULL)
-		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * (nb_words(s, c)) + 1);
-	if (tab == NULL)
-		return (NULL);
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
-			tab[k++] = ft_strndup(s + j, i - j);
-	}
-	tab[k] = NULL;
+	tab[j] = NULL;
 	return (tab);
 }

@@ -3,58 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 11:18:10 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/11/14 16:59:29 by kboucaul         ###   ########.fr       */
+/*   Created: 2018/11/22 13:53:08 by sboulaao          #+#    #+#             */
+/*   Updated: 2018/11/29 18:49:19 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int			len(long nb)
+static int		ft_sign(int *n, int *len)
 {
-	int				len;
+	int sign;
 
-	len = 0;
-	if (nb < 0)
+	sign = 0;
+	if (*n < 0)
 	{
-		nb = nb * -1;
-		len++;
+		sign = 1;
+		*n *= -1;
+		*len += 1;
 	}
-	while (nb > 0)
-	{
-		nb = nb / 10;
-		len++;
-	}
-	return (len);
+	return (sign);
 }
 
-char				*ft_itoa(int n)
+static int		ft_size(int n)
 {
-	char			*str;
-	long			nb;
-	int				i;
+	int	len;
 
-	nb = n;
-	i = len(nb);
-	if (!(str = (char*)malloc(sizeof(char) * (i + 1))))
+	len = 0;
+	if (n == 0)
+		return (2);
+	if (n < 0)
+		n *= -1;
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len + 1);
+}
+
+char			*ft_itoa(int n)
+{
+	int		len;
+	char	*tab;
+	int		sign;
+
+	len = ft_size(n);
+	sign = ft_sign(&n, &len);
+	if (n == 2147483647)
+		return (ft_strdup("2147483647"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if ((tab = (char *)ft_memalloc(len)) == NULL)
 		return (NULL);
-	str[i--] = '\0';
-	if (nb == 0)
+	tab[--len] = '\0';
+	while (len--)
 	{
-		str[0] = 48;
-		return (str);
+		tab[len] = (n % 10) + '0';
+		n /= 10;
 	}
-	if (nb < 0)
-	{
-		str[0] = '-';
-		nb = nb * -1;
-	}
-	while (nb > 0)
-	{
-		str[i--] = 48 + (nb % 10);
-		nb = nb / 10;
-	}
-	return (str);
+	if (sign)
+		tab[0] = '-';
+	return (tab);
 }

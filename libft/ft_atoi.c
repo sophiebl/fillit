@@ -3,52 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sboulaao <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:49:09 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/11/08 15:49:12 by kboucaul         ###   ########.fr       */
+/*   Created: 2018/11/12 16:18:15 by sboulaao          #+#    #+#             */
+/*   Updated: 2018/12/03 14:08:13 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static	int		is_space(char c)
+int		ft_atoi(const char *str)
 {
-	if (c == '\t' || c == '\n' || c == '\r' ||
-	c == '\v' || c == '\f' || c == ' ')
-		return (0);
-	return (1);
-}
+	int								i;
+	long long int					nb;
+	long long int					sign;
 
-static	int		check_neg(char **str)
-{
-	while (is_space(**str) == 0)
-		*str = *str + 1;
-	if (**str == '-')
+	i = 0;
+	nb = 0;
+	sign = 1;
+	while ((str[i] >= 7 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		*str = *str + 1;
-		return (-1);
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	else if (**str == '+')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		*str = *str + 1;
-		return (1);
+		nb = nb * 10 + str[i] - '0';
+		i++;
 	}
-	return (1);
-}
-
-int				ft_atoi(const char *str)
-{
-	int			result;
-	char		*str2;
-	int			signe;
-
-	result = 0;
-	str2 = (char *)str;
-	signe = check_neg(&str2);
-	while (*str2 && (*str2 >= '0' && *str2 <= '9'))
-	{
-		result = result * 10;
-		result = result + (*str2 - '0');
-		str2++;
-	}
-	return (result * signe);
+	nb *= sign;
+	return (nb);
 }

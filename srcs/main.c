@@ -6,13 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 18:01:17 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 13:33:07 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/09 12:57:14 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <fcntl.h>
-#include "tetri.h"
+#include "fillit.h"
 
 int		main(int ac, char **av)
 {

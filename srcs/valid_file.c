@@ -6,13 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:20:39 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/07 13:17:10 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/09 12:58:34 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tetri.h"
-#include "libft.h"
-#include <stdio.h>
+#include "fillit.h"
 
 int		check_size_tetri(char **tab, int nb_tetris)
 {

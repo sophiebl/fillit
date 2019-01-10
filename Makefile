@@ -6,7 +6,7 @@
 #    By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/12 13:36:39 by kboucaul          #+#    #+#              #
-#    Updated: 2019/01/07 13:52:03 by kboucaul         ###   ########.fr        #
+#    Updated: 2019/01/07 15:38:35 by sboulaao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,3 +46,5 @@ fclean		:		clean
 					make fclean -C ./libft/
 
 re			:		fclean	all
+
+.PHONY: all clean fclean re

@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/07 12:07:16 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/09 11:24:51 by kboucaul         ###   ########.fr       */
+/*   Created: 2019/01/10 18:40:18 by kboucaul          #+#    #+#             */
+/*   Updated: 2019/01/10 18:40:27 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "get_next_line.h"
-#include "tetri.h"
+#include "fillit.h"
 
 char			**my_alloc_tab(char *str, int *nb_tetris)
 {
@@ -46,9 +44,12 @@ int				take_tetri(const int fd)
 	str = my_get_line(&fd, line);
 	close(fd);
 	nb_tetris = ft_strlen(str) / 16;
+	ft_putnbr(nb_tetris);
 	tab = str_to_tab(str);
 	if (check_size_tetri(tab, nb_tetris) == -1)
 		return (-1);
+/*	if (!solve(tab, nb_tetris))
+		write(1, "error\n", 6);*/
 	while (i < nb_tetris)
 	{
 		if (check_form(tab, i) != 0)
