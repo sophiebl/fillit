@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:57:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 18:26:54 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/10 18:52:44 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ int		check_counts(char *tetri, int rd)
 /*
 **		Check_link	:	Retourne 0 si le nombre de liens n'est pas bon
 **		ou bien retourne le nombre de liens.
-**			
+**
 **			ex1 :
 **					..##
 **					...#	Ici 6 liens
-**					...#		-->3 liens 1ere ligne	
+**					...#		-->3 liens 1ere ligne
 **					....		-->2 liens 2eme ligne
 **								-->1 lien 3eme ligne
 **
 **			ex2 : (cas particulier)
-**					
+**
 **					.##.
 **					.##.	Ici 8 liens (car chaque bloque a 2 liens)
 **					....			-->4 liens 1ere ligne

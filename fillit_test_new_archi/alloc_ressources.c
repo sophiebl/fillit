@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 13:18:25 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 17:50:25 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/10 18:50:29 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 /*
 **		Value_to_point : Retourne une structure (point)
 **		allouee et initialisee aux valeurs de parametres
-**
 */
 
-t_point     *value_to_point(int x, int y)
+t_point			*value_to_point(int x, int y)
 {
-	t_point     *point;
+	t_point		*point;
 
 	point = malloc(sizeof(t_point));
 	if (point == NULL)
@@ -35,9 +34,9 @@ t_point     *value_to_point(int x, int y)
 **		allouee et initialisee aux valeurs de parametres
 */
 
-t_tetri     *value_to_tetri(char **pos, int width, int height, char value)
+t_tetri			*value_to_tetri(char **pos, int width, int height, char value)
 {
-	t_tetri     *tetri;
+	t_tetri		*tetri;
 
 	tetri = malloc(sizeof(t_tetri));
 	if (tetri == NULL)

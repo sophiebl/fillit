@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:45:29 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 18:29:43 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/10 18:54:27 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,22 +113,20 @@ t_tetri			*get_tetri(char *str, char letter)
 **			du fichier car LIFO
 */
 
-t_list			*read_tetri(int fd)
+t_list			*read_tetri(int fd, char *letter)
 {
 	char		*stock;
 	int			rd;
 	t_list		*list;
 	t_tetri		*tetri;
-	char		letter;
 
-	letter = 'A';
 	if (!(stock = (char *)malloc(21)))
 		return (NULL);
 	list = NULL;
 	while ((rd = read(fd, stock, 20)) >= 20)
 	{
 		if (check_counts(stock, rd) ||
-		(tetri = get_tetri(stock, letter++)) == NULL)
+		(tetri = get_tetri(stock, (*letter)++)) == NULL)
 		{
 			ft_strdel(&stock);
 			return (free_list_tetris(list));

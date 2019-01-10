@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/10 18:37:23 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/10 18:55:56 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int     				main(int ac, char **av);
 
 char					**cut_the_tetri(char *str, t_point *coord_min, t_point *coord_max);
 t_tetri					*get_tetri(char *str, char letter);
-t_list					*read_tetri(int fd);
+t_list					*read_tetri(int fd, char *letter);
 
 /*
 **		My_check_function
