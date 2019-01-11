@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:44:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 19:10:16 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 14:34:45 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,17 @@ void		free_map(t_map *map)
 	int		i;
 
 	i = 0;
-	while (i < map->size)
+	while (i < map->map_size)
 	{
 		ft_strdel(&(map->map[i]));
 		i++;
 	}
 	ft_memdel((void **)&(map->map));
 	ft_memdel((void **)&map);
+}
+
+void		final_free(t_map *map, t_list *list)
+{
+	free_map(map);
+	free_list_tetris(list);
 }

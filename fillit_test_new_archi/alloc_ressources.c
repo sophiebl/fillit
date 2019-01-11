@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 13:18:25 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 13:42:14 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 14:35:40 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_point			*value_to_point(int x, int y)
 */
 
 t_tetri			*value_to_tetri(char **cut_out_tetri,
-				int width, int height, char letter)
+		int width, int height, char letter)
 {
 	t_tetri		*tetri;
 
@@ -47,4 +47,47 @@ t_tetri			*value_to_tetri(char **cut_out_tetri,
 	tetri->height = height;
 	tetri->letter = letter;
 	return (tetri);
+}
+
+/*
+**		Create_new_map : Renvoie une structure contenant
+**		la map creee, initialise avec des '.' et ses proprietes.
+*/
+
+t_map			*create_new_map(int size)
+{
+	t_map		*map;
+
+	map = (t_map *)malloc(sizeof(t_map));
+	map->map_size = size;
+	map->map = (char **)malloc(sizeof(char *) * size);
+	if (map == NULL)
+		return (NULL);
+	map = init_new_map(map);
+	return (map);
+}
+
+/*
+**		Init_new_map : Remplie et alloue chaque ligne de la
+**		map avec des '.'.
+*/
+
+t_map			*init_new_map(t_map *map)
+{
+	int			i;
+	int			j;
+
+	i = 0;
+	while (i < map->map_size)
+	{
+		j = 0;
+		map->map[i] = (char*)malloc(sizeof(map->map_size));
+		while (j < map->map_size)
+		{
+			map->map[i][j] = '.';
+			j++;
+		}
+		i++;
+	}
+	return (map);
 }

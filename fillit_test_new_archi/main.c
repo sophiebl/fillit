@@ -6,29 +6,13 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:33:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 18:55:35 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 14:28:21 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "libft.h"
 #include "fillit.h"
-
-/*
-**		Print_map : affiche a l'ecran la solution trouvee
-*/
-
-void		print_solution(t_map *map)
-{
-	int		i;
-
-	i = 0;
-	while (i < map->size)
-	{
-		ft_putendl(map->map[i]);
-		i++;
-	}
-}
 
 /*
 **		Main : Debut du programme qui :
@@ -40,6 +24,7 @@ void		print_solution(t_map *map)
 int			main(int ac, char **av)
 {
 	t_list	*list;
+	t_map	*map;
 	int		fd;
 	char	letter;
 
@@ -55,5 +40,8 @@ int			main(int ac, char **av)
 		ft_putstr_fd("error\n", 2);
 		return (-1);
 	}
+	map = solution(list);
+	print_solution(map);
+	final_free(map, list);
 	return (0);
 }
