@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:45:29 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 17:54:27 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 18:03:44 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,17 +141,5 @@ t_list			*read_tetri(int fd, char *letter)
 	if (rd != 0)
 		return (free_list_tetris(list));
 	ft_lstrev(&list);
-	/*while (list->content != NULL)
-	{
-		tetri = list->content;
-		while (*tetri->cut_out_tetri)
-		{
-			ft_putendl((*tetri->cut_out_tetri));
-			tetri->cut_out_tetri++;
-		}
-		ft_putchar('\n');
-		ft_memdel((void**)&tetri);
-		list = list->next;
-	}*/
 	return (list);
 }

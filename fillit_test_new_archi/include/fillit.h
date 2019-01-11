@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/11 17:55:18 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 18:57:44 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ t_map					*init_new_map(t_map *map);
 
 t_map					*solution(t_list *list);
 void					print_solution(t_map *map);
+void					place_it(t_tetri *tetri, t_map *map, t_point *point, char letter);
+int						can_i_place_it(t_tetri *tetri, t_map *map, int x, int y);
+int						solve(t_map *map, t_list *list);
 
 /*
 **		My_free_ressources
