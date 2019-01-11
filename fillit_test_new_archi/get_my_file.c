@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:45:29 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 18:54:27 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 13:43:28 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,21 @@ char			**cut_the_tetri(char *str, t_point *coord_min,
 				t_point *coord_max)
 {
 	int			i;
+	int			tetri_limit_x;
+	int			tetri_limit_y;
 	char		**cut_out_tetri;
 
 	i = 0;
-	cut_out_tetri = ft_memalloc(sizeof(char *) *
-	(coord_max->y - coord_min->y + 1));
+	tetri_limit_x = coord_max->x - coord_min->x + 1;
+	tetri_limit_y = coord_max->y - coord_min->y + 1;
+	cut_out_tetri = malloc(sizeof(char *) * tetri_limit_y + 1);
 	if (cut_out_tetri == NULL)
 		return (NULL);
-	while (i < coord_max->y - coord_min->y + 1)
+	cut_out_tetri[tetri_limit_y] = NULL;
+	while (i < tetri_limit_y)
 	{
-		cut_out_tetri[i] = ft_strnew(coord_max->x - coord_min->x + 1);
-		ft_strncpy(cut_out_tetri[i], str + (coord_min->x) +
-		(i + coord_min->y) * 5, coord_max->x - coord_min->x + 1);
+		cut_out_tetri[i] = ft_strndup((str +
+		(coord_min->x) + (i + coord_min->y) * 5), tetri_limit_x);
 		i++;
 	}
 	return (cut_out_tetri);

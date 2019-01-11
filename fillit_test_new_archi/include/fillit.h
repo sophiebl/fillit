@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/10 19:10:40 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 13:43:07 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct			s_tetri
 	char				**cut_out_tetri;
 	int					width;
 	int					height;
-	char				value;
+	char				letter;
 }						t_tetri;
 
 typedef struct			s_point
@@ -69,8 +69,8 @@ void					get_coord(char *tetri, t_point *coord_min,
 */
 
 t_point					*value_to_point(int x, int y);
-t_tetri					*value_to_tetri(char **pos, int width,
-						int height, char value);
+t_tetri					*value_to_tetri(char **cut_out_tetri,
+						int width, int height, char letter);
 
 /*
 **		My_free_ressources

@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 13:18:25 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/10 18:50:29 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 13:42:14 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,17 @@ t_point			*value_to_point(int x, int y)
 **		allouee et initialisee aux valeurs de parametres
 */
 
-t_tetri			*value_to_tetri(char **pos, int width, int height, char value)
+t_tetri			*value_to_tetri(char **cut_out_tetri,
+				int width, int height, char letter)
 {
 	t_tetri		*tetri;
 
 	tetri = malloc(sizeof(t_tetri));
 	if (tetri == NULL)
 		return (NULL);
-	tetri->cut_out_tetri = pos;
+	tetri->cut_out_tetri = cut_out_tetri;
 	tetri->width = width;
 	tetri->height = height;
-	tetri->value = value;
+	tetri->letter = letter;
 	return (tetri);
 }

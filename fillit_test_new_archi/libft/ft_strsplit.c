@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 11:25:27 by kboucaul          #+#    #+#             */
-/*   Updated: 2018/11/14 16:34:25 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 13:28:18 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,6 @@ static int			nb_words(char const *s, char c)
 			i++;
 	}
 	return (word);
-}
-
-static char			*ft_strndup(const char *s, size_t n)
-{
-	char			*str;
-
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	str = ft_strncpy(str, s, n);
-	str[n] = '\0';
-	return (str);
 }
 
 char				**ft_strsplit(char const *s, char c)
