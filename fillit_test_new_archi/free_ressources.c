@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:44:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 14:34:45 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 20:50:22 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ void		free_map(t_map *map)
 	ft_memdel((void **)&(map->map));
 	ft_memdel((void **)&map);
 }
+
+/*
+**		Final_free : petite fonction appellee a la fin de notre main
+**		pour liberer la memoire de map et de list et ne pas encombrer le main.
+*/
 
 void		final_free(t_map *map, t_list *list)
 {
