@@ -6,13 +6,14 @@
 #    By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/19 11:33:19 by kboucaul          #+#    #+#              #
-#    Updated: 2019/01/11 13:27:34 by kboucaul         ###   ########.fr        #
+#    Updated: 2019/01/11 14:43:12 by kboucaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SRCS = 	./ft_lstnew.c		\
+		./ft_lstcount.c		\
 		./ft_lstadd.c		\
 		./ft_lstrev.c		\
 		./ft_strndup.c		\

@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:45:29 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 13:43:28 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 17:54:27 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ char			**cut_the_tetri(char *str, t_point *coord_min,
 	cut_out_tetri = malloc(sizeof(char *) * tetri_limit_y + 1);
 	if (cut_out_tetri == NULL)
 		return (NULL);
-	cut_out_tetri[tetri_limit_y] = NULL;
 	while (i < tetri_limit_y)
 	{
 		cut_out_tetri[i] = ft_strndup((str +
 		(coord_min->x) + (i + coord_min->y) * 5), tetri_limit_x);
 		i++;
 	}
+	cut_out_tetri[i] = NULL;
 	return (cut_out_tetri);
 }
 
@@ -126,7 +126,7 @@ t_list			*read_tetri(int fd, char *letter)
 	if (!(stock = (char *)malloc(21)))
 		return (NULL);
 	list = NULL;
-	while ((rd = read(fd, stock, 20)) >= 20)
+	while ((rd = read(fd, stock, 21)) >= 20)
 	{
 		if (check_counts(stock, rd) ||
 		(tetri = get_tetri(stock, (*letter)++)) == NULL)
@@ -141,5 +141,17 @@ t_list			*read_tetri(int fd, char *letter)
 	if (rd != 0)
 		return (free_list_tetris(list));
 	ft_lstrev(&list);
+	/*while (list->content != NULL)
+	{
+		tetri = list->content;
+		while (*tetri->cut_out_tetri)
+		{
+			ft_putendl((*tetri->cut_out_tetri));
+			tetri->cut_out_tetri++;
+		}
+		ft_putchar('\n');
+		ft_memdel((void**)&tetri);
+		list = list->next;
+	}*/
 	return (list);
 }

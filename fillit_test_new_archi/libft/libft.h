@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 11:34:16 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 13:28:50 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 14:45:37 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ void				ft_putnbr_fd(int n, int fd);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstrev(t_list **alst);
+size_t				ft_lstcount(t_list *lst);
 #endif

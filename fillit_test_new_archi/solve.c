@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:00:45 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 14:34:00 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 17:53:33 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ t_map		*solution(t_list *list)
 {
 	t_map	*map;
 	int		map_size;
+	int		nb_tetris;
 
-	(void)list;
+	nb_tetris = ft_lstcount(list);
 	map_size = 2;
+	while ((map_size * map_size) < (nb_tetris * 4))
+		map_size++;
 	map = create_new_map(map_size);
+	if (map == NULL)
+		return (NULL);
 	return (map);
 }
 
