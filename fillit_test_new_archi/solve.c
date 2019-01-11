@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:00:45 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 18:55:22 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/11 19:27:20 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void		place_it(t_tetri *tetri, t_map *map, t_point *point, char letter)
 {
 	int i;
 	int j;
+	int c_x;
+	int c_y;
 
+	c_x = point->x;
+	c_y = point->y;
 	i = 0;
 	while (i < tetri->height)
 	{
@@ -25,13 +29,13 @@ void		place_it(t_tetri *tetri, t_map *map, t_point *point, char letter)
 		while (j < tetri->width)
 		{
 			if (tetri->cut_out_tetri[i][j] == '#')
-				map->map[point->y + i][point->x + j] = letter;
+				map->map[c_y + i][c_x + j] = letter;
 			j++;
 		}
 		i++;
 	}
-	ft_memdel((void **)&point);
 }
+
 #include <stdio.h>
 int			can_i_place_it(t_tetri *tetri, t_map *map, int x, int y)
 {
@@ -39,7 +43,6 @@ int			can_i_place_it(t_tetri *tetri, t_map *map, int x, int y)
 	int		j;
 
 	i = 0;
-	printf("width = %d\n  height = %d\n", tetri->width, tetri->height);
 	while (i < tetri->height)
 	{
 		j = 0;
@@ -47,15 +50,11 @@ int			can_i_place_it(t_tetri *tetri, t_map *map, int x, int y)
 		{
 			if (tetri->cut_out_tetri[i][j] == '#' &&
 			map->map[y + i][x + j] != '.')
-			{
-				printf("tetri[%d][%d] = %c\n", i, j, tetri->cut_out_tetri[i][j]);
 				return (-1);
-			}
 			j++;
 		}
 		i++;
 	}
-	printf("x = %d et y = %d\n", x, y);
 	place_it(tetri, map, value_to_point(x, y), tetri->letter);
 	return (0);
 }
@@ -70,10 +69,10 @@ int			solve(t_map *map, t_list *list)
 	if (list == NULL)
 		return (0);
 	tetri = (t_tetri *)(list->content);
-	while (y < map->map_size - tetri->height + 1)
+	while (y < map->map_size)
 	{
 		x = 0;
-		while (x < map->map_size - tetri->width + 1)
+		while (x < map->map_size)
 		{
 			if (can_i_place_it(tetri, map, x, y) == 0)
 			{
