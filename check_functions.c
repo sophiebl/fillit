@@ -6,11 +6,59 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:57:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/13 18:38:12 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/13 22:10:51 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+**      Check_nlines : Check si le file en input ne contient pas de '\n'
+**      a la fin du fichier et si il n'a pas plus de 26 tetriminos
+*/
+
+int		check_nlines(int *fd)
+{
+	static int		nlines;
+	int				ret;
+	char			*buff;
+
+	nlines = 0;
+	if (!(buff = (char *)malloc(2)))
+		return (0);
+	while ((ret = read(*fd, buff, 1)))
+	{
+		if (buff[ret - 1] == '\n')
+			nlines++;
+		buff[ret] = '\0';
+	}
+	if (nlines % 5 == 0 || nlines > (25 * 5 + 4))
+		return (-1);
+	return (0);
+}
+
+/*
+**      Check_points : Check si le file en input contient bien 12 '.' par
+**      tetrimino
+*/
+
+int		check_points(char *tetri)
+{
+	int			i;
+	int			count_point;
+
+	i = 0;
+	count_point = 0;
+	while (i < 20)
+	{
+		if (tetri[i] == '.')
+			count_point++;
+		i++;
+	}
+	if (count_point != 12)
+		return (-1);
+	return (0);
+}
 
 /*
 **		Check_count	:	Retourne 0 si il n'y a pas d'erreur
@@ -22,19 +70,15 @@
 
 int		check_counts(char *tetri, int rd)
 {
-	int	i;
-	int	count;
-	int	count_point;
+	int			i;
+	int			count;
 
 	i = 0;
 	count = 0;
-	count_point = 0;
-	if (rd == 21 && tetri[20] != '\n')
+	if ((rd == 21 && tetri[20] != '\n') || check_points(tetri) == -1)
 		return (-1);
 	while (i < 20)
 	{
-		if (tetri[i] == '.')
-			count_point++;
 		if (i % 5 < 4)
 		{
 			if (!(tetri[i] == '#' || tetri[i] == '.'))
@@ -48,7 +92,7 @@ int		check_counts(char *tetri, int rd)
 			return (-1);
 		i++;
 	}
-	if (check_link(tetri) == 0 || count_point != 12)
+	if (check_link(tetri) == 0)
 		return (-1);
 	return (0);
 }
@@ -74,8 +118,8 @@ int		check_counts(char *tetri, int rd)
 
 int		check_link(char *tetri)
 {
-	int	link;
-	int	index;
+	int			link;
+	int			index;
 
 	link = 0;
 	index = 0;
