@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 17:31:47 by sboulaao          #+#    #+#             */
-/*   Updated: 2018/11/24 17:59:06 by sboulaao         ###   ########.fr       */
+/*   Created: 2018/11/14 11:19:48 by kboucaul          #+#    #+#             */
+/*   Updated: 2018/11/14 16:19:15 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(char c)
 {
-	ft_putchar_fd(c, 1);
+	write(1, &c, 1);
 }

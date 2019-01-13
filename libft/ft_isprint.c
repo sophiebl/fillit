@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 10:23:40 by sboulaao          #+#    #+#             */
-/*   Updated: 2018/11/24 18:44:56 by sboulaao         ###   ########.fr       */
+/*   Created: 2018/11/08 15:55:49 by kboucaul          #+#    #+#             */
+/*   Updated: 2018/11/14 11:49:57 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isprint(int c)
 {
-	if (c >= 32 && c < 127)
+	if ((c >= ' ') && (c <= '~'))
 		return (1);
 	else
 		return (0);

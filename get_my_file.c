@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:45:29 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 20:51:00 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/13 20:23:45 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,26 @@ t_tetri			*get_tetri(char *str, char letter)
 		return (NULL);
 	free_point(&coord_min, &coord_max);
 	return (tetri);
+}
+
+int				check_nlines(int *fd)
+{
+	static int 	nlines;
+	int 		ret;
+	char 		*buff;
+
+	nlines = 0;
+	if (!(buff = (char *)malloc(2)))
+		return (0);
+	while ((ret = read(*fd, buff, 1)))
+	{
+		if (buff[ret - 1] == '\n')
+			nlines++;
+		buff[ret]= '\0';
+	}
+	if (nlines % 5 == 0 || nlines > (25 * 5 + 4))
+		return (-1);
+	return (0);
 }
 
 /*

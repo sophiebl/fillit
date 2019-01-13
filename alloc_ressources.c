@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 13:18:25 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 20:48:42 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/13 19:26:02 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_map			*create_new_map(int size)
 
 	map = (t_map *)malloc(sizeof(t_map));
 	map->map_size = size;
-	map->map = (char **)malloc(sizeof(char *) * size);
+	map->map = (char **)malloc(sizeof(char *) * (size + 1));
 	if (map == NULL)
 		return (NULL);
 	map = init_new_map(map);
@@ -81,13 +81,15 @@ t_map			*init_new_map(t_map *map)
 	while (i < map->map_size)
 	{
 		j = 0;
-		map->map[i] = (char*)malloc(sizeof(map->map_size));
+		map->map[i] = (char *)malloc(sizeof(char) * (map->map_size + 1));
 		while (j < map->map_size)
 		{
 			map->map[i][j] = '.';
 			j++;
 		}
+		map->map[i][j] = '\0';
 		i++;
 	}
+	map->map[i] = "\0";
 	return (map);
 }

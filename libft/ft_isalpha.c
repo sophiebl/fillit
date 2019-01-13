@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboulaao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:54:07 by sboulaao          #+#    #+#             */
-/*   Updated: 2018/11/24 18:47:08 by sboulaao         ###   ########.fr       */
+/*   Created: 2018/11/08 15:53:39 by kboucaul          #+#    #+#             */
+/*   Updated: 2018/11/14 11:52:16 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') ||
-			(c >= 'A' && c <= 'Z'))
+	if ((c > 64) && (c < 91))
+		return (1);
+	else if ((c > 96) && (c < 123))
 		return (1);
 	else
 		return (0);

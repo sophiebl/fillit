@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:57:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 20:48:57 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/13 18:38:12 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,17 @@ int		check_counts(char *tetri, int rd)
 {
 	int	i;
 	int	count;
+	int	count_point;
 
-	count = 0;
 	i = 0;
+	count = 0;
+	count_point = 0;
 	if (rd == 21 && tetri[20] != '\n')
 		return (-1);
 	while (i < 20)
 	{
+		if (tetri[i] == '.')
+			count_point++;
 		if (i % 5 < 4)
 		{
 			if (!(tetri[i] == '#' || tetri[i] == '.'))
@@ -44,7 +48,7 @@ int		check_counts(char *tetri, int rd)
 			return (-1);
 		i++;
 	}
-	if (check_link(tetri) == 0)
+	if (check_link(tetri) == 0 || count_point != 12)
 		return (-1);
 	return (0);
 }

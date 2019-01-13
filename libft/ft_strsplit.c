@@ -3,39 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 11:23:22 by sboulaao          #+#    #+#             */
-/*   Updated: 2018/12/01 15:34:12 by sboulaao         ###   ########.fr       */
+/*   Created: 2018/11/14 11:25:27 by kboucaul          #+#    #+#             */
+/*   Updated: 2019/01/11 13:28:18 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char					**ft_strsplit(char const *s, char c)
+static int			nb_words(char const *s, char c)
 {
-	int		j;
-	int		len;
-	char	**tab;
+	unsigned int	i;
+	int				word;
 
-	j = 0;
-	if (!s || !c)
-		return (NULL);
-	if ((tab = (char **)malloc(sizeof(*tab) * (ft_countw(s, c) + 1))) == NULL)
-		return (NULL);
-	while (*s)
+	i = 0;
+	word = 0;
+	while (s[i])
 	{
-		while (*s == c)
-			s++;
-		if (*s)
-		{
-			len = ft_size_word(s, c);
-			if (!(tab[j] = ft_strnew(len)))
-				return (NULL);
-			ft_strncpy(tab[j++], s, len);
-			s += len;
-		}
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0')
+			word++;
+		while (s[i] && (s[i] != c))
+			i++;
 	}
-	tab[j] = NULL;
+	return (word);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	int				i;
+	int				j;
+	int				k;
+	char			**tab;
+
+	i = 0;
+	k = 0;
+	if (s == NULL)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * (nb_words(s, c)) + 1);
+	if (tab == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		j = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > j)
+			tab[k++] = ft_strndup(s + j, i - j);
+	}
+	tab[k] = NULL;
 	return (tab);
 }
