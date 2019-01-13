@@ -6,11 +6,20 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:57:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/13 22:10:51 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/13 22:38:49 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+int		exit_program(int *fd)
+{
+	ft_putstr("error");
+	close(*fd);
+	return (-1);
+}
+*/
 
 /*
 **      Check_nlines : Check si le file en input ne contient pas de '\n'
