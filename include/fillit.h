@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/13 22:39:15 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/14 13:31:01 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct			s_map
 **		Main.c
 */
 
+int						exit_program(int *fd);
 int						main(int ac, char **av);
 
 /*

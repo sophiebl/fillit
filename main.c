@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:33:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/13 22:46:23 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/14 13:38:50 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,23 @@
 #include "fillit.h"
 
 /*
+**		Exit_program : fonction appelee dans le main qui quitte notre
+**		programme proprement en cas d'erreur avec le file descriptor
+**		ou si check_nlines renvoie une erreur.
+*/
+
+int			exit_program(int *fd)
+{
+	ft_putstr("error\n");
+	close(*fd);
+	return (-1);
+}
+
+/*
 **		Main : Debut du programme qui :
 **			-gere les erreurs (d'arguments)
 **			-appelle les differentes fonctions
-**			(solver, affichage, liberation de memoire etc...)
+**			(solver, liberation de memoire etc...)
 */
 
 int			main(int ac, char **av)
@@ -34,26 +47,12 @@ int			main(int ac, char **av)
 		ft_putstr_fd("Need one argument\n", 2);
 		return (-1);
 	}
-	fd = open(av[1], O_RDONLY);
-	if (fd >= 0)
-	{
-		if (check_nlines(&fd) == -1)
-		{
-			ft_putstr("error");
-			close(fd);
-			return (-1);
-		}
-		close(fd);
-		fd = open(av[1], O_RDONLY);
-	}
-	if ((fd < 0) || ((list = read_tetri(fd, &letter)) == NULL))
-	{
-		ft_putstr("error");
-		close(fd);
-		return (-1);
-	}
+	if ((fd = open(av[1], O_RDONLY)) < 0 || check_nlines(&fd) == -1)
+		return (exit_program(&fd));
+	if (((fd = open(av[1], O_RDONLY)) < 0) ||
+	((list = read_tetri(fd, &letter)) == NULL))
+		return (exit_program(&fd));
 	map = solution(list);
-	print_solution(map);
 	final_free(map, list);
 	return (0);
 }

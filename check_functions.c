@@ -6,20 +6,11 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:57:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/13 22:46:26 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/14 13:39:40 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*
-int		exit_program(int *fd)
-{
-	ft_putstr("error");
-	close(*fd);
-	return (-1);
-}
-*/
 
 /*
 **      Check_nlines : Check si le file en input ne contient pas de '\n'
@@ -30,16 +21,13 @@ int		check_nlines(int *fd)
 {
 	static int		nlines;
 	int				ret;
-	char			*buff;
+	char			buff;
 
 	nlines = 0;
-	if (!(buff = (char *)malloc(2)))
-		return (0);
-	while ((ret = read(*fd, buff, 1)))
+	while ((ret = read(*fd, &buff, 1)))
 	{
-		if (buff[ret - 1] == '\n')
+		if (buff == '\n')
 			nlines++;
-		buff[ret] = '\0';
 	}
 	if (nlines % 5 == 0 || nlines > (25 * 5 + 4))
 		return (-1);
@@ -70,7 +58,7 @@ int		check_points(char *tetri)
 }
 
 /*
-**		Check_count	:	Retourne 0 si il n'y a pas d'erreur
+**		Check_counts : Retourne 0 si il n'y a pas d'erreur
 **		ou -1 si il y a au moins 1 erreur.
 **			-Check si les caracteres du tetri sont ('#', '.', '\n')
 **			-Check si il y a exactement 4 '#'
@@ -107,7 +95,7 @@ int		check_counts(char *tetri, int rd)
 }
 
 /*
-**		Check_link	:	Retourne 0 si le nombre de liens n'est pas bon
+**		Check_link : Retourne 0 si le nombre de liens n'est pas bon
 **		ou bien retourne le nombre de liens.
 **
 **			ex1 :

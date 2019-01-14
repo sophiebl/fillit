@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:00:45 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/13 20:59:15 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/01/14 13:41:47 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int				can_i_place_it(t_tetri *tetri, t_map *map, int x, int y)
 	int			j;
 
 	i = 0;
-	while (i < tetri->height)
+	while ((i < tetri->height) && ((y + i) < map->map_size))
 	{
 		j = 0;
-		while (j < tetri->width)
+		while ((j < tetri->width) && ((x + j) < map->map_size))
 		{
 			if (tetri->cut_out_tetri[i][j] == '#' &&
 			map->map[y + i][x + j] != '.')
@@ -144,6 +144,7 @@ int				solve(t_map *map, t_list *list)
 **			Tant que nous n'avons pas fini de resoudre la map (solve-->1)
 **			a cause de la taille de map, on recommence
 **			(mais ce n'est pas le backtracking).
+**			On affiche la map a la fin de la fonction.
 */
 
 t_map			*solution(t_list *list)
@@ -163,13 +164,14 @@ t_map			*solution(t_list *list)
 	{
 		map_size++;
 		free_map(map);
-		create_new_map(map_size);
+		map = create_new_map(map_size);
 	}
+	print_solution(map);
 	return (map);
 }
 
 /*
-**      Print_map : affiche a l'ecran la solution trouvee
+**      Print_map : affiche a l'ecran la solution trouvee (map) du type char **.
 */
 
 void			print_solution(t_map *map)

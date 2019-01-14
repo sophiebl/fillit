@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:44:18 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/11 20:50:22 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/14 13:40:57 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 
 /*
-**		Liberation de la memoire utilisee pour la structure tetri
+**		Free_tetris : Liberation de la memoire utilisee pour la structure tetri
 */
 
 void		free_tetris(t_tetri *tetri)
@@ -32,7 +32,7 @@ void		free_tetris(t_tetri *tetri)
 }
 
 /*
-**		Liberation de la memoire utilisee pour la structure point
+**		Free_point : Liberation de la memoire utilisee pour la structure point
 */
 
 void		free_point(t_point **coord_min, t_point **coord_max)
@@ -42,7 +42,7 @@ void		free_point(t_point **coord_min, t_point **coord_max)
 }
 
 /*
-**		Liberation de la memoire utilisee pour la liste chainee
+**		Free_list : Liberation de la memoire utilisee pour la liste chainee
 */
 
 t_list		*free_list_tetris(t_list *list)
@@ -62,7 +62,7 @@ t_list		*free_list_tetris(t_list *list)
 }
 
 /*
-**		Liberation de la memoire utilisee pour la structure map
+**		Free_map : Liberation de la memoire utilisee pour la structure map
 */
 
 void		free_map(t_map *map)
@@ -70,7 +70,7 @@ void		free_map(t_map *map)
 	int		i;
 
 	i = 0;
-	while (i < map->map_size)
+	while (i < (map->map_size))
 	{
 		ft_strdel(&(map->map[i]));
 		i++;
