@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:33:43 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/14 13:38:50 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/14 17:06:45 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int			main(int ac, char **av)
 	letter = 'A';
 	if (ac != 2)
 	{
-		ft_putstr_fd("Need one argument\n", 2);
+		ft_putstr_fd("usage : fillit file", 2);
 		return (-1);
 	}
 	if ((fd = open(av[1], O_RDONLY)) < 0 || check_nlines(&fd) == -1)
