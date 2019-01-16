@@ -6,7 +6,7 @@
 #    By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/12 13:36:39 by kboucaul          #+#    #+#              #
-#    Updated: 2019/01/16 15:19:38 by kboucaul         ###   ########.fr        #
+#    Updated: 2019/01/16 18:18:42 by sboulaao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS		=		main.c				\
 					solve.c				\
 					get_my_file.c
 
-OBJS		=		$(SRCS:%.c=%.o)
+OBJS		=		$(SRCS:.c=.o)
 
 CC			=		gcc
 
