@@ -6,7 +6,7 @@
 /*   By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:45:29 by kboucaul          #+#    #+#             */
-/*   Updated: 2019/01/14 17:06:15 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:17:12 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,15 @@ char			**cut_the_tetri(char *str, t_point *coord_min,
 	i = 0;
 	width = coord_max->x - coord_min->x + 1;
 	height = coord_max->y - coord_min->y + 1;
-	cut_out_tetri = (char **)malloc(sizeof(char *) * height + 1);
+	cut_out_tetri = (char **)malloc(sizeof(char *) * height);
 	if (cut_out_tetri == NULL)
 		return (NULL);
 	while (i < height)
 	{
 		cut_out_tetri[i] = ft_strndup((str +
-		(coord_min->x) + (i + coord_min->y) * 5), width);
+		(coord_min->x) + (i + coord_min->y) * 5), width + 1);
 		i++;
 	}
-	cut_out_tetri[i] = "\0";
 	return (cut_out_tetri);
 }
 
