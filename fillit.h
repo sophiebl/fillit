@@ -6,14 +6,14 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 14:27:24 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/01/14 13:31:01 by kboucaul         ###   ########.fr       */
+/*   Updated: 2019/01/16 13:40:45 by kboucaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>

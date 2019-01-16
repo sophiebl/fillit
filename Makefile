@@ -6,7 +6,7 @@
 #    By: kboucaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/12 13:36:39 by kboucaul          #+#    #+#              #
-#    Updated: 2019/01/14 14:42:46 by kboucaul         ###   ########.fr        #
+#    Updated: 2019/01/16 13:41:15 by kboucaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS		=		$(SRCS:%.c=%.o)
 
 CC			=		gcc
 
-CFLAGS		+=		-Wall -Wextra -Werror -I ./include -I ./libft
+CFLAGS		+=		-Wall -Wextra -Werror -I . -I ./libft
 
 LIB			=		-L./libft -lft
 
